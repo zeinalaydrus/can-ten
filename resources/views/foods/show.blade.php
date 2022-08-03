@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card my-5">
-        <img class="card-image-top" src="{{ $food->image }}" alt="">
+        <img class="card-image-top" src="{{ asset('/storage/' . $food->image) }}" alt="">
         <div class="card-body">
             <h1>{{ $food->title }}</h1>
             <div class="text-danger">
@@ -36,7 +36,7 @@
         </div>
 
         <div class="card-footer">
-            <form action="{{ route('food.destroy', $food->id) }}">
+            <form action="{{ route('food.destroy', $food->id) }}" method="POST">
                 @csrf
                 @method('delete')
                 <button type="submit" class="btn btn-link float-end">Delete</button>

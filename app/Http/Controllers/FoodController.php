@@ -36,16 +36,21 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+
+        $validateData = $request->validate([
             'title' => 'required',
-            'image' => 'required',
+            'image' => 'required|file',
             'rating_star' => 'required',
             'description' => 'required',
         ]);
 
-        $food = Food::create($request->all());
+        if ($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('post-image');
+        }
 
-        return redirect()->route('food.show', $food->id);
+        Food::create($validateData);
+
+        return redirect()->route('food.index');
     }
 
     /**
@@ -91,6 +96,6 @@ class FoodController extends Controller
     public function destroy(food $food)
     {
         $food->delete();
-        return redirect()->route('foods.index');
+        return redirect()->route('food.index');
     }
 }

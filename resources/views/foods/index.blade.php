@@ -14,9 +14,9 @@
             @foreach ($foods as $food)
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="{{ $food->image }}" class="card-image-top">
+                        <img src="{{ asset('/storage/' . $food->image) }}" class="card-image-top">
                         <div class="card-body">
-                        <h1><a href="{{ route('food.show', $food->id) }}">{{ $food->title }}</a></h1>
+                            <h1><a href="{{ route('food.show', $food->id) }}">{{ $food->title }}</a></h1>
                             <div class="text-danger">
                                 @for ($i = 1; $i <= $food->rating_star; $i++)
                                     <i class="fas fa-star"></i>
