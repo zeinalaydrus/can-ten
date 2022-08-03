@@ -17,8 +17,8 @@
                         </div>
                     @enderror
                 </div>
-                <div class="mb-3">
-                    <label for="image" class="form-label ">Upload Image</label>
+                <div class="mb-2">
+                    <label for="image" class="form-label">Upload Image</label>
                     <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"
                         name="image">
                     @error('title')
@@ -29,9 +29,14 @@
                 </div>
                 <div class="form-group">
                     <label>Rating Star</label>
-                    <input type="number" class="form-control @error('rating_star') is-invalid @enderror" id="rating_star"
-                        name="rating_star" value="{{ old('rating_star') }}">
-                        @error('rating_star')
+                    <select class="form-select" name="rating_star" aria-label="Default select example">
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        <option value="4">Foue</option>
+                        <option value="5">Five</option>
+                    </select>
+                    @error('rating_star')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>

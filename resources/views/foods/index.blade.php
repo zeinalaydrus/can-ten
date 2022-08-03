@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
     <h1>All Foods
         <a href="{{ route('food.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></a>
@@ -12,11 +13,11 @@
     <div class="row">
         @if (count($foods))
             @foreach ($foods as $food)
-                <div class="col-md-4">
+                <div class="col-md-4 mb-5">
                     <div class="card">
-                        <img src="{{ asset('/storage/' . $food->image) }}" class="card-image-top">
+                        <img height="270" width="415" src="{{ asset('/storage/' . $food->image) }}" class="card-image-top">
                         <div class="card-body">
-                            <h1><a href="{{ route('food.show', $food->id) }}">{{ $food->title }}</a></h1>
+                            <h1><a class="title" href="{{ route('food.show', $food->id) }}">{{ $food->title }}</a></h1>
                             <div class="text-danger">
                                 @for ($i = 1; $i <= $food->rating_star; $i++)
                                     <i class="fas fa-star"></i>
@@ -30,3 +31,11 @@
         @endif
     </div>
 @endsection
+
+
+<style>
+    .title {
+        text-decoration: none;
+        color: black;
+    }
+</style>
