@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->integer('rating_star');
-            $table->text('image');
+            $table->string('image');
             $table->timestamps();
         });
     }
