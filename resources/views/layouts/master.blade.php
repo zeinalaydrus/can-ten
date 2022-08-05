@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layout Horizontal - Mazer Admin Dashboard</title>
+    <title>can-ten</title>
 
-    <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png">
+    <link rel="stylesheet" href="{{ asset('assets/css/main/app.css') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo/burger.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo/burger.png') }}" type="image/png">
 
-    <link rel="stylesheet" href="assets/css/shared/iconly.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/shared/iconly.css') }}">
 
 </head>
 
@@ -20,17 +20,17 @@
             <header class="mb-5">
                 <div class="header-top">
                     <div class="container">
-                        <div class="logo">
-                            <a href="index.html"><img src="assets/images/logo/logo.svg" alt="Logo"
+                        {{-- <div class="logo">
+                            <a href="index.html"><img src="assets/images/logo/burger.svg" alt="Logo"
                                     srcset=""></a>
-                        </div>
+                        </div> --}}
                         <div class="header-top-right">
 
                             <div class="dropdown">
                                 <a href="#" class="user-dropdown d-flex dropend" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     <div class="avatar avatar-md2">
-                                        <img src="assets/images/faces/1.jpg" alt="Avatar">
+                                        <img src="{{asset('assets/images/faces/1.jpg')}}" alt="Avatar">
                                     </div>
                                     <div class="text">
                                         <h6 class="user-dropdown-name">John Ducky</h6>
@@ -491,9 +491,9 @@
         @yield('content')
     </div>
 
-    <script src="assets/js/pages/dashboard.js"></script>
+    <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
 
-    <script src="assets/js/pages/horizontal-layout.js"></script>
+    <script src="{{ asset('assets/js/pages/horizontal-layout.js') }}"></script>
 </body>
 
 </html>

@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('layouts.master')
 
 @section('content')
 
@@ -43,28 +42,30 @@
         <p>No foods</p>
     @endunless
 
-    <div class="row">
-        @if (count($foods))
-            @foreach ($foods as $food)
-                <div class="col-md-4 mb-5">
-                    <div class="card">
-                        <img height="270" width="415" src="{{ asset('/storage/' . $food->image) }}"
-                            class="card-image-top">
-                        <div class="card-body">
-                            <h1><a class="title" href="{{ route('food.show', $food->id) }}">{{ $food->title }}</a></h1>
-                            <div class="text-danger">
-                                @for ($i = 1; $i <= $food->rating_star; $i++)
-                                    <i class="fas fa-star"></i>
-                                @endfor
+        <div class="row">
+            @if (count($foods))
+                @foreach ($foods as $food)
+                    <div class="col-md-4 mb-5">
+                        <div class="card">
+                            <img height="270" src="{{ asset('/storage/' . $food->image) }}" class="card-image-top">
+                            <div class="card-body">
+                                <h1><a class="title" href="{{ route('food.show', $food->id) }}">{{ $food->title }}</a>
+                                </h1>
+                                <div class="text-danger">
+                                    @for ($i = 1; $i <= $food->rating_star; $i++)
+                                        <i class="fas fa-star"></i>
+                                    @endfor
+                                </div>
+                                <p>{{ Str::limit($food->description, 100) }}</p>
                             </div>
-                            <p>{{ Str::limit($food->description, 100) }}</p>
                         </div>
                     </div>
-                </div>
-            @endforeach
-        @endif
+                @endforeach
+            @endif
+        </div>
     </div>
 @endsection
+
 
 
 <style>
