@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+
 @section('content')
 <div class="container">
     <div id="carouselExampleIndicators" class="carousel slide w-100" data-bs-ride="true">
@@ -13,13 +14,13 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active w-100 h-50">
-                <img src="assets/images/faces/banner.png" class="d-block w-100 h-100" alt="...">
+                <img src="assets/images/faces/banner6.png" class="d-block w-100 h-100" alt="...">
             </div>
             <div class="carousel-item w-100 h-50">
-                <img src="assets/images/faces/banner2.jpg" class="d-block w-100 h-100" alt="...">
+                <img src="assets/images/faces/banner4.png" class="d-block w-100 h-100" alt="...">
             </div>
             <div class="carousel-item w-100 h-50">
-                <img src="assets/images/faces/banner3.jpg" class="d-block w-100 h-100" alt="...">
+                <img src="assets/images/faces/banner5.png" class="d-block w-100 h-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -42,31 +43,29 @@
         <p>No foods</p>
     @endunless
 
-        <div class="row">
-            @if (count($foods))
-                @foreach ($foods as $food)
-                    <div class="col-md-4 mb-5">
-                        <div class="card">
-                            <img height="270" src="{{ asset('/storage/' . $food->image) }}" class="card-image-top">
-                            <div class="card-body">
-                                <h1><a class="title" href="{{ route('food.show', $food->id) }}">{{ $food->title }}</a>
-                                </h1>
-                                <div class="text-danger">
-                                    @for ($i = 1; $i <= $food->rating_star; $i++)
-                                        <i class="fas fa-star"></i>
-                                    @endfor
-                                </div>
-                                <p>{{ Str::limit($food->description, 100) }}</p>
+    <div class="row">
+        @if (count($foods))
+            @foreach ($foods as $food)
+                <div class="col-md-4 mb-5">
+                    <div class="card">
+                        <img height="270" width="415" src="{{ asset('/storage/' . $food->image) }}"
+                            class="card-image-top">
+                        <div class="card-body">
+                            <h1><a class="title" href="{{ route('food.show', $food->id) }}">{{ $food->title }}</a></h1>
+                            <div class="text-danger">
+                                @for ($i = 1; $i <= $food->rating_star; $i++)
+                                    <i class="fas fa-star"></i>
+                                @endfor
                             </div>
+                            <p>{{ Str::limit($food->description, 100) }}</p>
                         </div>
                     </div>
-                @endforeach
-            @endif
-        </div>
+                </div>
+            @endforeach
+        @endif
     </div>
 </div>
 @endsection
-
 
 
 <style>
