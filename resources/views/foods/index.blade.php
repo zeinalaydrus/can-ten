@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-
+<div class="container">
     <div id="carouselExampleIndicators" class="carousel slide w-100" data-bs-ride="true">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -64,6 +64,7 @@
             @endif
         </div>
     </div>
+</div>
 @endsection
 
 
