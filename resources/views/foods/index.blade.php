@@ -17,10 +17,10 @@
                 <img src="assets/images/faces/banner.png" class="d-block w-100 h-100" alt="...">
             </div>
             <div class="carousel-item w-100 h-50">
-                <img src="assets/images/faces/2.jpg" class="d-block w-100 h-100" alt="...">
+                <img src="assets/images/faces/banner2.jpg" class="d-block w-100 h-100" alt="...">
             </div>
             <div class="carousel-item w-100 h-50">
-                <img src="assets/images/faces/3.jpg" class="d-block w-100 h-100" alt="...">
+                <img src="assets/images/faces/banner3.jpg" class="d-block w-100 h-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
