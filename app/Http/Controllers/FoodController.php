@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\food;
+use App\Models\Food;
 use Illuminate\Http\Request;
+use App\Models\ReviewRating;
 
 class FoodController extends Controller
 {
@@ -14,7 +15,7 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $foods = food::all();
+        $foods = Food::all();
         return view('foods.index', compact('foods'));
     }
 
@@ -59,7 +60,7 @@ class FoodController extends Controller
      * @param  \App\Models\food  $food
      * @return \Illuminate\Http\Response
      */
-    public function show(food $food)
+    public function show(Food $food)
     {
         return view('foods.show', compact('food'));
     }
@@ -67,10 +68,10 @@ class FoodController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\food  $food
+     * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function edit(food $food)
+    public function edit(Food $food)
     {
         //
     }
@@ -82,7 +83,7 @@ class FoodController extends Controller
      * @param  \App\Models\food  $food
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, food $food)
+    public function update(Request $request, Food $food)
     {
         //
     }
@@ -90,12 +91,21 @@ class FoodController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\food  $food
+     * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function destroy(food $food)
+    public function destroy(Food $food)
     {
         $food->delete();
         return redirect()->route('food.index');
+    }
+
+    public function reviewstore(Request $request)
+    {
+        $review = new ReviewRating();
+        $review->food_id = $request->food_id;
+        $review->star_rating = $request->rating;
+        $review->save();
+        return redirect()->back();
     }
 }

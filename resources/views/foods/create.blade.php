@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
+<div class="container">
     <div class="card my-5">
         <div class="card-body">
             <h1>Add new Food</h1>
@@ -56,4 +57,5 @@
             </form>
         </div>
     </div>
+</div>
 @endsection

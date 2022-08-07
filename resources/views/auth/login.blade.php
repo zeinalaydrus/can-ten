@@ -49,7 +49,7 @@
                                 <h3 class="bi bi-eye" aria-hidden="true" id="eye" onclick="toggle()"></h3>
                             </span>
                             <div class="form-control-icon">
-                                <i class="bi bi-shield-lock"></i>
+                                <i class="ml-3 bi bi-shield-lock"></i>
                             </div>
 
                         </div>

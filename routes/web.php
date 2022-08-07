@@ -17,12 +17,12 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return redirect('food');
+    return redirect('login');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/food', [App\Http\Controllers\FoodController::class, 'index'])->name('home');
 
 Route::resource('food', FoodController::class);
 Route::resource('comment', CommentController::class);
@@ -30,3 +30,5 @@ Route::resource('foods.comment', CommentController::class)->shallow();
 
 Route::post('/foods/{food:id}')->name('foods_store');
 Route::delete('/foods/{food:id}')->name('foods_destroy');
+
+Route::post('/review-store', [FoodController::class, 'reviewstore'])->name('review.store');
