@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\FoodController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,18 +16,24 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return redirect('login');
+    return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/food', [App\Http\Controllers\FoodController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('food', FoodController::class);
-Route::resource('comment', CommentController::class);
-Route::resource('foods.comment', CommentController::class)->shallow();
+Route::get('/customer/histories', function () {
+});
 
-Route::post('/foods/{food:id}')->name('foods_store');
-Route::delete('/foods/{food:id}')->name('foods_destroy');
+Route::get('/customer/carts', function () {
+})->middleware("role:customer");
 
-Route::post('/review-store', [FoodController::class, 'reviewstore'])->name('review.store');
+Route::get('/customer/histories', function () {
+});
+Route::get('/customer/profile', function () {
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
