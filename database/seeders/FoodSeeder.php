@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\food;
+use App\Models\Food;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
