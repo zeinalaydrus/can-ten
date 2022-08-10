@@ -48,8 +48,7 @@
             @foreach ($foods as $food)
                 <div class="col-md-4 mb-5">
                     <div class="card">
-                        <img height="270" width="415" src="{{ asset('/storage/' . $food->image) }}"
-                            class="card-image-top">
+                        <img class="card-img" style="height:270px" src="{{ asset('/storage/' . $food->image) }}">
                         <div class="card-body">
                             <h1><a class="title" href="{{ route('food.show', $food->id) }}">{{ $food->title }}</a></h1>
                             <div class="text-danger">
