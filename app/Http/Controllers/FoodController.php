@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Food;
 use Illuminate\Http\Request;
+use App\Models\Comment;
 use App\Models\ReviewRating;
+use Illuminate\Support\Facades\Auth;
 
 class FoodController extends Controller
 {
@@ -15,7 +17,9 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $foods = Food::all();
+        $foods = Food::get();
+        // $avg = ReviewRating::where('food_id', $foods[0]->id)->get();
+        // $avg->avg('star_rating');
         return view('foods.index', compact('foods'));
     }
 
@@ -62,7 +66,8 @@ class FoodController extends Controller
      */
     public function show(Food $food)
     {
-        return view('foods.show', compact('food'));
+        $post_detail = Food::with('ReviewDatas')->find($food->id);
+        return view('foods.show', compact('food', 'post_detail'));
     }
 
     /**
@@ -100,10 +105,18 @@ class FoodController extends Controller
         return redirect()->route('food.index');
     }
 
-    public function reviewstore(Request $request)
+    public function reviewstore(Request $request, Food $food)
     {
+        $request->validate(['comment' => 'required']);
+        $comment = Comment::create([
+            'user_id' => Auth::user()->id,
+            'food_id' => $food->id,
+            'content' => $request->comment,
+        ]);
         $review = new ReviewRating();
+        $review->comment_id = $comment->id;
         $review->food_id = $request->food_id;
+        $review->user_id = Auth::user()->id;
         $review->star_rating = $request->rating;
         $review->save();
         return redirect()->back();

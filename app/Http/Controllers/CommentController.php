@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\comment;
-use App\Models\food;
+use App\Models\Comment;
+use App\Models\Food;
+use App\Models\ReviewRating;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -86,12 +87,16 @@ class CommentController extends Controller
      * @param  \App\Models\comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(comment $comment)
+    public function destroy(Comment $comment, ReviewRating $reviewRating)
     {
         if ($comment->user->id !== Auth::user()->id) {
             abort(501);
         }
-        $comment->delete();
+        if ($comment->user->id !== Auth::user()->id) {
+            abort(501);
+        }
+        $comment->id = Comment::find($comment->id)->delete();
+        $reviewRating->delete();
         return back();
     }
 }

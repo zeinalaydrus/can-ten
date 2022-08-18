@@ -22,7 +22,9 @@
                                 <h1><a class="title" href="{{ route('food.show', $food->id) }}">{{ $food->title }}</a>
                                 </h1>
                                 <div>
-                                    <h1 class="text-warning">5.0</h1>
+                                    <h1 class="text-warning">
+                                        {{ $food->ReviewDatas ? $food->ReviewDatas->avg('star_rating') : '0' }}
+                                    </h1>
                                 </div>
                                 <p>{{ Str::limit($food->description, 100) }}</p>
                             </div>

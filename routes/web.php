@@ -31,4 +31,4 @@ Route::resource('foods.comment', CommentController::class)->shallow();
 Route::post('/foods/{food:id}')->name('foods_store');
 Route::delete('/foods/{food:id}')->name('foods_destroy');
 
-Route::post('/review-store', [FoodController::class, 'reviewstore'])->name('review.store');
+Route::post('/review-store/{food:id}', [FoodController::class, 'reviewstore'])->name('review.store');

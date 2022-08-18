@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ReviewRating extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id', 'food_id', 'content'];
+    protected $fillable = ['user_id', 'comment_id' , 'food_id', 'content'];
 
     public function user()
     {
@@ -19,4 +19,10 @@ class ReviewRating extends Model
     {
         return $this->belongsTo(Food::class);
     }
+
+    public function comment()
+    {
+        return $this->belongsTo(Comment::class);
+    }
+    
 }

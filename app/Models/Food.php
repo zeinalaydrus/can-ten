@@ -14,7 +14,7 @@ class Food extends Model
     {
         return $this->hasMany(Comment::class);
     }
-    public function ReviewData()
+    public function ReviewDatas()
     {
         return $this->hasMany('App\Models\ReviewRating', 'food_id');
     }

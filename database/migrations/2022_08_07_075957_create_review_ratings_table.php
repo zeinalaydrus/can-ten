@@ -15,8 +15,10 @@ class CreateReviewRatingsTable extends Migration
     {
         Schema::create('review_ratings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('comment_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained();
             $table->unsignedBigInteger('food_id');
-            $table->integer('star_rating');
+            $table->integer('star_rating')->default(0);
             $table->timestamps();
         });
     }
