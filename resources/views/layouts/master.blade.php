@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>can-ten</title>
 
-    <link rel="stylesheet" href="{{ asset('assets/css/main/app.css') }}">
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo/burger.svg') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo/burger.png') }}" type="image/png">
-
-    <link rel="stylesheet" href="{{ asset('assets/css/shared/iconly.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/main/app.css') }}">
+    <link rel="shortcut icon" href="{{ asset('/assets/images/logo/burger.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('/assets/images/logo/burger.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ asset('/assets/css/shared/iconly.css') }}">
 
 </head>
 
@@ -27,16 +26,7 @@
                         <div class="header-top-right">
 
                             <div class="dropdown">
-                                <a href="#" class="user-dropdown d-flex dropend" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <div class="avatar avatar-md2">
-                                        <img src="{{asset('assets/images/faces/1.jpg')}}" alt="Avatar">
-                                    </div>
-                                    <div class="text">
-                                        <h6 class="user-dropdown-name">John Ducky</h6>
-                                        <p class="user-dropdown-status text-sm text-muted">Member</p>
-                                    </div>
-                                </a>
+
                                 <ul class="dropdown-menu dropdown-menu-end shadow-lg"
                                     aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#">My Account</a></li>
@@ -55,74 +45,80 @@
                         </div>
                     </div>
                 </div>
-                <nav class="main-navbar">
+                <nav class="main-navbar bg-dark">
                     <div class="container">
                         <ul>
-                            <li class="menu-item active has-sub">
-                                <a href="#" class='menu-link'>
-                                    <i class="bi bi-grid-1x2-fill"></i>
-                                    <span>Layouts</span>
-                                </a>
-                                <div class="submenu ">
-                                    <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
-                                    <div class="submenu-group-wrapper">
-
-
-                                        <ul class="submenu-group">
-
-                                            <li class="submenu-item  ">
-                                                <a href="layout-default.html" class='submenu-link'>Default Layout</a>
-
-
-                                            </li>
-
-
-
-                                            <li class="submenu-item  ">
-                                                <a href="layout-vertical-1-column.html" class='submenu-link'>1
-                                                    Column</a>
-
-
-                                            </li>
-
-
-
-                                            <li class="submenu-item  ">
-                                                <a href="layout-vertical-navbar.html" class='submenu-link'>Vertical
-                                                    Navbar</a>
-
-
-                                            </li>
-
-
-
-                                            <li class="submenu-item  ">
-                                                <a href="layout-rtl.html" class='submenu-link'>RTL Layout</a>
-
-
-                                            </li>
-
-
-
-                                            <li class="submenu-item active ">
-                                                <a href="layout-horizontal.html" class='submenu-link'>Horizontal
-                                                    Menu</a>
-
-
-                                            </li>
-
-
+                            <li>
+                                <a href="#" class="user-dropdown d-flex dropend" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <div class="avatar avatar-md2">
+                                        <img src="{{ asset('assets/images/faces/1.jpg') }}" alt="Avatar">
                                     </div>
+                                    <div class="ms-3 me-5">
+                                        <h6 class="user-dropdown-name text-light">Robben Ezackly</h6>
+                                        <p class="user-dropdown-status text-sm text-secondary">General Manager</p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            </a>
+                            <div class="submenu ">
+                                <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
+                                <div class="submenu-group-wrapper">
+
+
+                                    <ul class="submenu-group">
+
+                                        <li class="submenu-item  ">
+                                            <a href="layout-default.html" class='submenu-link'>Default Layout</a>
+
+
+                                        </li>
+
+
+
+                                        <li class="submenu-item  ">
+                                            <a href="layout-vertical-1-column.html" class='submenu-link'>1
+                                                Column</a>
+
+
+                                        </li>
+
+
+
+                                        <li class="submenu-item  ">
+                                            <a href="layout-vertical-navbar.html" class='submenu-link'>Vertical
+                                                Navbar</a>
+
+
+                                        </li>
+
+
+
+                                        <li class="submenu-item  ">
+                                            <a href="layout-rtl.html" class='submenu-link'>RTL Layout</a>
+
+
+                                        </li>
+
+
+
+                                        <li class="submenu-item active ">
+                                            <a href="layout-horizontal.html" class='submenu-link'>Horizontal
+                                                Menu</a>
+
+
+                                        </li>
+
+
+
                                 </div>
+                            </div>
                             </li>
 
 
 
-                            <li class="menu-item  has-sub">
-                                <a href="#" class='menu-link'>
-                                    <i class="bi bi-file-earmark-medical-fill"></i>
-                                    <span>Forms</span>
-                                </a>
+                            
                                 <div class="submenu ">
                                     <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
                                     <div class="submenu-group-wrapper">
@@ -219,11 +215,6 @@
 
 
 
-                            <li class="menu-item  has-sub">
-                                <a href="#" class='menu-link'>
-                                    <i class="bi bi-table"></i>
-                                    <span>Table</span>
-                                </a>
                                 <div class="submenu ">
                                     <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
                                     <div class="submenu-group-wrapper">
@@ -261,11 +252,7 @@
 
 
 
-                            <li class="menu-item  has-sub">
-                                <a href="#" class='menu-link'>
-                                    <i class="bi bi-plus-square-fill"></i>
-                                    <span>Extras</span>
-                                </a>
+                            
                                 <div class="submenu ">
                                     <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
                                     <div class="submenu-group-wrapper">
@@ -357,11 +344,7 @@
 
 
 
-                            <li class="menu-item  has-sub">
-                                <a href="#" class='menu-link'>
-                                    <i class="bi bi-file-earmark-fill"></i>
-                                    <span>Pages</span>
-                                </a>
+                           
                                 <div class="submenu ">
                                     <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
                                     <div class="submenu-group-wrapper">
@@ -456,11 +439,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="menu-item  has-sub">
-                                <a href="#" class='menu-link'>
-                                    <i class="bi bi-life-preserver"></i>
-                                    <span>Support</span>
-                                </a>
+                          
                                 <div class="submenu ">
                                     <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
                                     <div class="submenu-group-wrapper">
@@ -480,9 +459,11 @@
                                     </div>
                                 </div>
                             </li>
+
                         </ul>
                     </div>
                 </nav>
+                <img src="assets/images/faces/banner1.png" class="d-block w-100 h-100" alt="...">
             </header>
         </div>
     </div>
