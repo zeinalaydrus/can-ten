@@ -9,7 +9,7 @@
                     <img class="col-12 card-image m-4" src="{{ asset('/storage/' . $food->image) }}"
                         style="border-radius: 0.5rem;">
                 </div>
-                <div class="col-6">
+                <div class="col-6 d-flex flex-row flex-nowrap overflow-auto" style="height: 400px">
                     <div class="card-body mt-5">
                         <h1>{{ $food->title }}</h1>
                         <p>{{ $food->description }}</p>
