@@ -18,7 +18,7 @@ class CreateReviewRatingsTable extends Migration
             $table->foreignId('comment_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained();
             $table->unsignedBigInteger('food_id');
-            $table->integer('star_rating')->default(0);
+            $table->integer('star_rating')->default(5);
             $table->timestamps();
         });
     }
