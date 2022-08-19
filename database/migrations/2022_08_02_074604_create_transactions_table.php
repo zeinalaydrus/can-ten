@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('food_id')->constrained();
-            $table->text('content');
+            $table->integer('quantity');
+            $table->string('status');
+            $table->string('invoice_code');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('transactions');
     }
 };
