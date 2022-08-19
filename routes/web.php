@@ -36,8 +36,7 @@ Route::get('/customer/profile', function () {
 
 Auth::routes();
 
-<<<<<<< HEAD
+
 Route::post('/review-store/{food:id}', [FoodController::class, 'reviewstore'])->name('review.store');
-=======
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
->>>>>>> 61d8407d107bfc50a0cb0b1883525fae18c599a0

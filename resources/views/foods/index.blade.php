@@ -5,7 +5,14 @@
 <div class="container">
     <h1>All Foods
         @hasrole('admin')
-            <a href="{{ route('food.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></a>
+
+    <div class="container">
+        
+       
+
+
+        <h1 class="mt-2">All Foods
+                <a href="{{ route('food.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></a>
         @endhasrole
     </h1>
 
