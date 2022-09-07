@@ -55,6 +55,7 @@ class FoodSeeder extends Seeder
             'description' => 'Piza adalah hidangan gurih asal Italia sejenis adonan bundar dan pipih, yang dipanggang di oven dan biasanya dilumuri saus tomat serta keju dengan bahan makanan tambahan lainnya yang bisa dipilih sesuai selera.',
             'image' => 'pizza.jpg',
             'rating_star' => '5'
+            
         ]);
     }
 }

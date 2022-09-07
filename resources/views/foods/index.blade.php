@@ -28,6 +28,7 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
+         
         @hasrole('admin')
             <div class="container">
                 <h1 class="mt-2">All Foods
