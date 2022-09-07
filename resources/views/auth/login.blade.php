@@ -19,7 +19,7 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="logo-login">
-                        <img src="assets/images/logo.svg" alt="icon">
+                        {{-- <img src="assets/images/burger.png" alt="icon"> --}}
                     </div>
                     <h1 class="auth-title">Log in.</h1>
                     <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
@@ -32,7 +32,7 @@
                                 class=" form-control form-control-xl @error('email') is-invalid @enderror"
                                 placeholder="Email">
                             <div class="form-control-icon">
-                                <i class="bi bi-person"></i>
+                                <i class="ml-1 bi bi-person"></i>
                             </div>
                         </div>
                         @error('email')

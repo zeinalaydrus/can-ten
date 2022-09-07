@@ -19,7 +19,7 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="logo-register">
-                        <img src="assets/images/logo.svg" alt="icon">
+                        {{-- <img src="assets/images/logo.svg" alt="icon"> --}}
                     </div>
                     <h1 class="auth-title">Sign Up</h1>
                     <p class="auth-subtitle mb-5">Input your data to register to our website.</p>
@@ -28,8 +28,9 @@
                         @csrf
 
                         <div class="form-group position-relative has-icon-left mb-0">
-                            <input type="text" class="form-control form-control-xl @error('name') is-invalid @enderror"
-                                name="name" style="border-radius: 10px" placeholder="Username" required>
+                            <input type="text"
+                                class="form-control form-control-xl @error('name') is-invalid @enderror" name="name"
+                                style="border-radius: 10px" placeholder="Username" required>
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>

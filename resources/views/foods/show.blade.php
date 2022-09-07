@@ -9,11 +9,13 @@
                     <img class="col-12 card-image m-4" src="{{ asset('/storage/' . $food->image) }}"
                         style="border-radius: 0.5rem;">
                 </div>
-                <div class="col-6 d-flex flex-row flex-nowrap overflow-auto" style="height: 400px">
+                <div class="col-6">
                     <div class="card-body mt-5">
                         <h1>{{ $food->title }}</h1>
                         <p>{{ $food->description }}</p>
                         <h3>Review</h3>
+                        <div class="row">
+                            <div class="col d-flex flex-row flex-nowrap overflow-auto" style="height: 400px">
                         <ul class="list-group list-group-flush">
                             @if (count($food->comments))
                                 @foreach ($food->comments as $comment)
@@ -24,10 +26,6 @@
                                             @endfor
                                         </div>
                                         <b>{{ $comment->user->name }}:</b> {{ $comment->content }}
-                                        <form action="{{ route('comment.edit', $comment->id) }}" method="POST">
-                                            @csrf @method('PUT')
-                                            <button type="submit" class="btn btn-link text-danger">Edit</button>
-                                        </form>
                                         <form action="{{ route('comment.destroy', $comment->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
@@ -39,6 +37,8 @@
                                 No Comments!
                             @endif
                         </ul>
+                    </div>
+                    </div>
                         <div class="row justify-content-end mb-1">
                             <div class="col-sm-8 float-right">
                                 @if (Session::has('flash_msg_success'))
@@ -69,18 +69,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <input type="hidden" value="{{ $food->id }}" name="food_id">
                             <input type="text" name="comment" class="form-control" placeholder="say something....">
                             <button type="submit" class="btn btn-primary float-end mt-2">Comment</button>
                         </form>
                     </div>
 
-                    <div class="card-footer mt-3">
-                        <form action="{{ route('food.destroy', $food->id) }}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-link float-end">Delete</button>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
@@ -88,19 +82,6 @@
 @endsection
 
 <style>
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    .avatar {
-        vertical-align: middle;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-    }
-
     .rate {
         float: left;
         height: 46px;
@@ -141,16 +122,5 @@
     .rate>input:checked~label:hover~label,
     .rate>label:hover~input:checked~label {
         color: #c59b08;
-    }
-
-    .rating-container .form-control:hover,
-    .rating-container .form-control:focus {
-        background: #fff;
-        border: 1px solid #ced4da;
-    }
-
-    .rating-container textarea:focus,
-    .rating-container input:focus {
-        color: #000;
     }
 </style>

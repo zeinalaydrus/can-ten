@@ -110,7 +110,7 @@ class FoodController extends Controller
         $request->validate(['comment' => 'required']);
         $comment = Comment::create([
             'user_id' => Auth::user()->id,
-            'food_id' => $food->id,
+            'food_id' => $request->food_id,
             'content' => $request->comment,
         ]);
         $review = new ReviewRating();
