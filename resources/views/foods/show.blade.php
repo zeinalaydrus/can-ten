@@ -77,8 +77,9 @@
                             <input type="text" name="comment" class="form-control" placeholder="say something....">
                             <button type="submit" class="btn btn-primary float-end mt-2">Comment</button>
                         </form>
+                        <a href="https://api.whatsapp.com/send?phone=6281388649406&text=Selamat%20datang%20di%20kantin%2010,%20Silahkan%20order%20yang%20anda%20inginkan%20:"
+                            class="WhatsApp"><i class="bi bi-whatsapp"></i> <span>Order Here</span></a>
                     </div>
-
                 </div>
             </div>
         </div>
