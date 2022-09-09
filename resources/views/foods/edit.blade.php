@@ -5,13 +5,13 @@
         <div class="card my-5">
             <div class="card-body">
                 <h1>Add new Food</h1>
-                <form action="{{ route('food.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('food.update', $food->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
-
+                    @method('PUT')
                     <div class="form-group">
                         <label>Title</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
-                            name="title" value="{{ old('title') }}">
+                            name="title" value="{{ $food->title }}">
                         @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <label>Price</label>
                         <input type="number" class="form-control @error('price') is-invalid @enderror" id="price"
-                            name="price" value="{{ old('price') }}">
+                            name="price" value="{{ $food->price }}">
                         @error('price')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -41,7 +41,7 @@
                     <div class="form-group">
                         <label>Description</label>
                         <textarea rows="10" class="form-control @error('description') is-invalid @enderror" id="description"
-                            name="description" value="{{ old('descriptiom') }}"></textarea>
+                            name="description">{{ $food->description }}</textarea>
                         @error('description')
                             <div class="invalid-feedback">
                                 {{ $message }}

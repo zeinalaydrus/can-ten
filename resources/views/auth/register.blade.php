@@ -39,10 +39,9 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+
+
                         </div>
-
-
-
                         <div class="form-group position-relative has-icon-left mt-4 mb-0">
                             <input required asp-for="email" type="email" name="email"
                                 class=" form-control form-control-xl @error('email') is-invalid @enderror"
@@ -58,8 +57,6 @@
                                 </span>
                             </div>
                         @enderror
-
-
 
                         <div class="form-group position-relative has-icon-left mt-4 mb-0">
                             <input required asp-for="password" type="password" name="password"
@@ -77,7 +74,6 @@
                             </div>
                         @enderror
 
-
                         <div class="form-group position-relative has-icon-left mt-4 mb-4">
                             <input type="password"
                                 class="form-control form-control-xl @error('password_confirmation') is-invalid @enderror"
@@ -91,10 +87,9 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+
+
                         </div>
-
-
-
                         <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Sign Up</button>
                     </form>
                     <div class="text-center mt-5 text-lg fs-4">

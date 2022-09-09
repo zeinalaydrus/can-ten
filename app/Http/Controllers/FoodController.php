@@ -18,8 +18,6 @@ class FoodController extends Controller
     public function index()
     {
         $foods = Food::get();
-        // $avg = ReviewRating::where('food_id', $foods[0]->id)->get();
-        // $avg->avg('star_rating');
         return view('foods.index', compact('foods'));
     }
 
@@ -45,7 +43,7 @@ class FoodController extends Controller
         $validateData = $request->validate([
             'title' => 'required',
             'image' => 'required|file',
-            'rating_star' => 'required',
+            'price' => 'required',
             'description' => 'required',
         ]);
 
@@ -53,6 +51,7 @@ class FoodController extends Controller
             $validateData['image'] = $request->file('image')->store('post-image');
         }
 
+        // dd($validateData);
         Food::create($validateData);
 
         return redirect()->route('food.index');
@@ -78,7 +77,8 @@ class FoodController extends Controller
      */
     public function edit(Food $food)
     {
-        //
+        // $food = Food::get();
+        return view('foods.edit', compact('food'));
     }
 
     /**
@@ -88,9 +88,29 @@ class FoodController extends Controller
      * @param  \App\Models\food  $food
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Food $food)
+    public function update(Request $request, $id)
     {
-        //
+        $food = Food::where('id', $id)->first();
+
+        $request->validate([
+            'title' => 'required',
+            'image' => 'required|file',
+            'price' => 'required',
+            'description' => 'required',
+        ]);
+
+        $food->update([
+            'title' => $request->title,
+            'image' => $request->file('image')->store('post-image'),
+            'price' => $request->price,
+            'description' => $request->description,
+        ]);
+        // if ($request->file('image')) {
+        //     $validateData['image'] = $request->file('image')->store('post-image');
+        // }
+
+
+        return redirect()->route('food.index');
     }
 
     /**

@@ -16,29 +16,33 @@
                         <h3>Review</h3>
                         <div class="row">
                             <div class="col d-flex flex-row flex-nowrap overflow-auto" style="height: 400px">
-                        <ul class="list-group list-group-flush">
-                            @if (count($food->comments))
-                                @foreach ($food->comments as $comment)
-                                    <li class="list-group-item">
-                                        <div class="star">
-                                            @for ($i = 1; $i <= $comment->reviews[0]->star_rating; $i++)
-                                                <span><i class="fa fa-star text-warning"></i></span>
-                                            @endfor
-                                        </div>
-                                        <b>{{ $comment->user->name }}:</b> {{ $comment->content }}
-                                        <form action="{{ route('comment.destroy', $comment->id) }}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn btn-link text-danger">Delete</button>
-                                        </form>
-                                    </li>
-                                @endforeach
-                            @else
-                                No Comments!
-                            @endif
-                        </ul>
-                    </div>
-                    </div>
+                                <ul class="list-group list-group-flush">
+                                    @if (count($food->comments))
+                                        @foreach ($food->comments as $comment)
+                                            <li class="list-group-item">
+                                                <div class="star">
+                                                    @for ($i = 1; $i <= $comment->reviews[0]->star_rating; $i++)
+                                                        <span><i class="fa fa-star text-warning"></i></span>
+                                                    @endfor
+                                                </div>
+                                                <b>{{ $comment->user->name }}:</b> {{ $comment->content }}
+                                                @if ($comment->user->id == Auth::user()->id)
+                                                    <form action="{{ route('comment.destroy', $comment->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit"
+                                                            class="btn btn-link text-danger">Delete</button>
+                                                    </form>
+                                                @endif
+                                            </li>
+                                        @endforeach
+                                    @else
+                                        No Comments!
+                                    @endif
+                                </ul>
+                            </div>
+                        </div>
                         <div class="row justify-content-end mb-1">
                             <div class="col-sm-8 float-right">
                                 @if (Session::has('flash_msg_success'))
@@ -73,6 +77,8 @@
                             <input type="text" name="comment" class="form-control" placeholder="say something....">
                             <button type="submit" class="btn btn-primary float-end mt-2">Comment</button>
                         </form>
+                        <a href="https://api.whatsapp.com/send?phone=6281388649406&text=Selamat%20datang%20di%20kantin%2010,%20Silahkan%20order%20yang%20anda%20inginkan%20:"
+                            class="WhatsApp"><i class="bi bi-whatsapp"></i> <span>Order Here</span></a>
                     </div>
 
                 </div>

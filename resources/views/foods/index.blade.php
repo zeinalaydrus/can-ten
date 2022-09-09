@@ -5,7 +5,7 @@
         @hasrole('admin')
             <div class="container">
                 <h1 class="mt-2">All Foods
-                    <a href="{{ route('food.create') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                    <a href="{{ route('food.create') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus mt-1"></i></a>
                 @endhasrole
             </h1>
 
@@ -22,12 +22,13 @@
                                 <div class="card-body">
                                     <h1><a class="title" href="{{ route('food.show', $food->id) }}">{{ $food->title }}</a>
                                     </h1>
-                                    <div>
-                                        <h1 class="text-warning">
-                                            {{ $food->ReviewDatas ? $food->ReviewDatas->avg('star_rating') : '0' }}
-                                        </h1>
-                                    </div>
+                                    <h4>Rp.{{ $food->price }}</h4>
+                                    <h1 class="text-warning">
+                                        {{ $food->ReviewDatas ? $food->ReviewDatas->avg('star_rating') : '0' }}
+                                    </h1>
                                     <p>{{ Str::limit($food->description, 100) }}</p>
+                                    <a href="{{ route('food.edit', $food->id) }}" class="btn btn-primary btn-sm"><i
+                                            class="bi bi-pencil-square mt-1"></i></a>
                                 </div>
                             </div>
                         </div>

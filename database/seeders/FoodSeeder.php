@@ -19,42 +19,42 @@ class FoodSeeder extends Seeder
             'title' => 'Makaroni',
             'description' => 'Makaroni merupakan salah satu pasta yang bentuknya seperti pipa kecil yang bengkok membentuk busur. Makaroni biasanya diolah dengan saus krim dan kacang polong.',
             'image' => 'macaroni.jpeg',
-            'rating_star' => '5'
+            'price' => '100000',
         ]);
 
         Food::create([
             'title' => 'Pizza',
             'description' => 'Piza adalah hidangan gurih asal Italia sejenis adonan bundar dan pipih, yang dipanggang di oven dan biasanya dilumuri saus tomat serta keju dengan bahan makanan tambahan lainnya yang bisa dipilih sesuai selera.',
             'image' => 'pizza.jpg',
-            'rating_star' => '5'
+            'price' => '100000',
         ]);
 
         Food::create([
             'title' => 'Burger',
             'description' => 'Hamburger adalah sejenis roti berbentuk bundar yang diiris dua, dan di tengahnya diisi dengan patty yang biasanya diambil dari daging, kemudian sayur-sayuran berupa selada, tomat dan bawang bombai.',
             'image' => 'burger.webp',
-            'rating_star' => '5'
+            'price' => '100000',
         ]);
 
         Food::create([
             'title' => 'French Fries',
             'description' => 'Kentang goreng adalah hidangan yang dibuat dari potongan-potongan kentang yang digoreng dalam minyak goreng panas. Di dalam menu rumah-rumah makan.',
             'image' => 'french fries.jpg',
-            'rating_star' => '5'
+            'price' => '100000',
         ]);
 
         Food::create([
             'title' => 'Makaroni',
             'description' => 'Makaroni merupakan salah satu pasta yang bentuknya seperti pipa kecil yang bengkok membentuk busur. Makaroni biasanya diolah dengan saus krim dan kacang polong.',
             'image' => 'macaroni.jpeg',
-            'rating_star' => '5'
+            'price' => '100000',
         ]);
 
         Food::create([
             'title' => 'Pizza',
             'description' => 'Piza adalah hidangan gurih asal Italia sejenis adonan bundar dan pipih, yang dipanggang di oven dan biasanya dilumuri saus tomat serta keju dengan bahan makanan tambahan lainnya yang bisa dipilih sesuai selera.',
             'image' => 'pizza.jpg',
-            'rating_star' => '5'
+            'price' => '100000',
         ]);
     }
 }
