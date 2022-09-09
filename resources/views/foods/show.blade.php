@@ -15,7 +15,7 @@
                         <p>{{ $food->description }}</p>
                         <h3>Review</h3>
                         <div class="row">
-                            <div class="col d-flex flex-row flex-nowrap overflow-auto" style="height: 400px">
+                            <div class="col d-flex flex-row flex-nowrap overflow-auto" style="max-height: 300px">
                                 <ul class="list-group list-group-flush">
                                     @if (count($food->comments))
                                         @foreach ($food->comments as $comment)
