@@ -49,10 +49,11 @@
                                     <h1><a class="title" href="{{ route('food.show', $food->id) }}">{{ $food->title }}</a>
                                     </h1>
                                     <h4>Rp.{{ $food->price }}</h4>
-                                    <h1 class="text-warning">
-                                        {{ $food->ReviewDatas ? $food->ReviewDatas->avg('star_rating') : '0' }}
-                                    </h1>
-                                    <p>{{ Str::limit($food->description, 100) }}</p>
+                                    <h4 class="text-warning">
+                                        {{ $food->ReviewDatas ? $food->ReviewDatas->avg('star_rating') : '0', 3 }}<i
+                                            class="fa fa-star text-warning"></i>
+                                    </h4>
+                                    <p>{{ Str::limit($food->description, 150) }}</p>
                                     @hasrole('admin')
                                         <a href="{{ route('food.edit', $food->id) }}" class="btn btn-primary btn-sm"><i
                                                 class="bi bi-pencil-square mt-1"></i></a>
